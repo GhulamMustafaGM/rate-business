@@ -16,7 +16,7 @@ var moment = require('moment');
 var app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/rateme');
+mongoose.connect('mongodb://localhost/ratebusiness');
 
 require('./config/passport');
 require('./secret/secret');
