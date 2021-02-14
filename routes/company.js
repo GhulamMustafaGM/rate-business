@@ -45,13 +45,13 @@ module.exports = (app) => {
         form.uploadDir = path.join(__dirname, '../public/uploads');
         
         form.on('file', (field, file) => {
-           fs.rename(file.path, path.join(form.uploadDir, file.name), (err) => {
-               if(err){
-                   throw err
-               }
-               
-               console.log('File has been renamed');
-           }); 
+        fs.rename(file.path, path.join(form.uploadDir, file.name), (err) => {
+            if(err){
+                throw err
+            }
+            
+            console.log('File has been renamed');
+        }); 
         });
         
         form.on('error', (err) => {
@@ -89,18 +89,18 @@ module.exports = (app) => {
     app.post('/company/register-employee/:id', (req, res, next) => {
         async.parallel([
             function(callback){
-               Company.update({
-                   '_id': req.params.id,
-                   'employees.employeeId': {$ne: req.user._id}
-               },
-               {
+            Company.update({
+                '_id': req.params.id,
+                'employees.employeeId': {$ne: req.user._id}
+            },
+            {
                     $push: {employees: {employeeId: req.user._id, employeeFullname:req.user.fullname, employeeRole:req.body.role}}
-               }, (err, count) => {
-                   if(err){
-                       return next(err);
-                   }
-                   callback(err, count);
-               });
+            }, (err, count) => {
+                if(err){
+                    return next(err);
+                }
+                callback(err, count);
+            });
             },
             
             function(callback){
@@ -157,20 +157,3 @@ module.exports = (app) => {
     });
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
