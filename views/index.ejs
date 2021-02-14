@@ -16,12 +16,9 @@
             
             <li><a href="/signup"><i class="fa fa-registered"></i> Register Here</a></li>
             <li class="lists">As a guest you can see the companies that have signed up to our platform.</li>
-            
             <li class="lists">After registration, you can register a company, rate and review other companies.</li>
-
         </ul>
     </div>
-
 
     <div id="page-content-wrapper">
         <% include partials/nav %>
@@ -47,10 +44,9 @@
                     <% var total = arrayAverage(data[i].ratingNumber) %>
                     
                     
-				    <div class="col-xs-12 col-md-6 col-lg-4 companyListDiv">
+				<div class="col-xs-12 col-md-6 col-lg-4 companyListDiv">
                         <a href="/login">
                             <img src="/uploads/<%= data[i].image %>" class="companyListItemLogo">
-
                             <div class="companyListItemInfo">
                                 <h5 class=""><%= data[i].name %></h5>
                                 <span class="">
@@ -60,7 +56,6 @@
                                 <i class="fa fa-building-o "> <%= data[i].sector %></i><br>
                                 <i class="fa fa-map-marker "> <%= data[i].city %>, <%= data[i].country %></i>
                             </div>
-
                         </a>
                     </div>
 				<% } %>
